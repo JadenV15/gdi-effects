@@ -150,8 +150,8 @@ static bool RunShader(
         // Apply shader.
         shader(pixels, width, height);
 
-        // Shader 4 has its own special output behavior.
-        if (shader == Shader4) {
+        // Shader 5 has its own special output behavior.
+        if (shader == Shader5) {
             BitBlt(
                 hdcScreen,
                 0, 0,
