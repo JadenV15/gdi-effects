@@ -1,0 +1,9 @@
+
+*.so
+*.obj
+*.dll
+*.exe
+*.out
+
+.vscode/
+.idea/
