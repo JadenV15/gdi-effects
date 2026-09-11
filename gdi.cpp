@@ -277,13 +277,15 @@ int main(int argc, char* argv[])
     const int shaderNumber = std::atoi(argv[1]);
     const int seconds = std::atoi(argv[2]);
 
-    if (shaderNumber < 1 || shaderNumber > 5) {
-        std::cerr << "Invalid shader number. Use 1-5.\n";
+    ShaderFunction shader = GetShader(shaderNumber);
+
+    if (!shader) {
+        std::cerr << "Invalid shader.\n";
         return 1;
     }
 
     if (seconds <= 0) {
-        std::cerr << "Invalid duration. Use a positive number of seconds.\n";
+        std::cerr << "Invalid duration.\n";
         return 1;
     }
 
@@ -297,13 +299,6 @@ int main(int argc, char* argv[])
             std::cerr << "Unknown option: " << argv[3] << "\n";
             return 1;
         }
-    }
-
-    ShaderFunction shader = GetShader(shaderNumber);
-
-    if (!shader) {
-        std::cerr << "Invalid shader.\n";
-        return 1;
     }
 
     std::cout
@@ -328,7 +323,7 @@ int main(int argc, char* argv[])
         MessageBoxW(NULL, L"Finished", L"", MB_OK | MB_ICONINFORMATION);
     }
 
-    std::cout << "Finished.\n";
+    std::cout << "Finished\n";
 
     return 0;
 }
